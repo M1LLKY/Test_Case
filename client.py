@@ -22,11 +22,4 @@ def basic_request(image_path: str):
                 get_response = requests.get(f"{BASE_URL}/images/{image_id}")
                 if get_response.status_code == 200:
                     return True
-                else:
-                    return False
-            else:
-                return False
-        else:
-            return False
-    else:
-        return False
+    return False

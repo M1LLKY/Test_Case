@@ -52,7 +52,9 @@ async def upload_image(file: UploadFile = File(...)) -> Dict[str, str]:
 
 
 @app.get("/images/", response_model=List[ImageMetadata])
-def list_images(limit: int = 10, offset: int = 0) -> List[ImageMetadata]:
+def list_images(limit: int = None, offset: int = 0) -> List[ImageMetadata]:
+    if limit == None:
+        return images_metadata[offset:]
     return images_metadata[offset:offset + limit]
 
 
